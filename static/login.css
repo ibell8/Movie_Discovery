@@ -1,0 +1,28 @@
+body{
+    background: linear-gradient(0.25turn, #09e163, #21cece,#079235 );
+    color: black;
+}
+h1{
+    text-align: center;
+}
+
+/* Field set and legend section */
+
+fieldset{
+    margin: 2em 0;
+    padding: 1em 2em;
+    border: solid 5px rgb(17, 21, 22);
+    border-radius: 15px;
+    min-width: 200px;
+}
+label {
+    display: block;
+    margin-top: 1em;
+}
+input[name = 'username'] {
+    height: 2em;
+    width: 15em;
+}
+a {
+    font-size: 30;
+}

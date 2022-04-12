@@ -1,0 +1,82 @@
+body {
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient() */
+    /*background: linear-gradient(0.25turn, #e10938, #fee7ec,#0f0701 ); */
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 35;
+    text-align: center;
+    margin: 0;
+}
+
+h2{
+    font-size: 55;
+    text-align: center;
+    margin: 0;
+}
+h3{
+    font-size: 40;
+    text-align: center;
+    margin: 0;
+} 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box {
+    border-style:dotted;
+    text-align: center;
+    border-width: thick;
+    font-size: 40;
+}
+
+li
+{ 
+    display:inline; 
+    font-size: 20;
+    
+}
+.gContainer{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+}
+
+p {
+    text-align: center;
+    font-size: 25;
+}
+
+/* Field set and legend section */
+
+fieldset{
+    margin: 2em 0;
+    padding: 1em 2em;
+    border: solid 1px rgb(94, 223, 252);
+    border-radius: 6px;
+    min-width: 200px;
+}
+legend {
+    font-size: 1.23em;
+    padding: 0 .25em;
+    color: rgb(11, 10, 10);
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+}
+
+input {
+    padding: .5em;
+    border: solid 1px black;
+}
+input[name='rating'] {
+    width: 10em;
+}
+input[name='comment'] {
+    width: 35em;
+}

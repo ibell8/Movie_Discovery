@@ -1,0 +1,10 @@
+[MASTER]
+disable=
+    C0114, C0115, C0116, W1508, # missing-module-docstring missing-function-docstring and env type error
+    W0611, #(main.py)This import was required for heroku for some reason
+    E1101, #(models.py)Instand of 'SQLAlchemy' has no column/string/integer member. theres nothing I can do to solve that other than ignore it
+    R0903, # (models.py)Too few public methods, its basically saying I shouldnt use a class for user and comment, but I think I should use.
+    C0413, #(databse.py) Import "from models import User". This import has to come after DB
+    C0301, #Line too long, all my solutions produced more erros
+    C0209, #Not needed
+ignored-classes=scoped_session #Instance of scoped_session has no ... member. False positive, source: https://stackoverflow.com/questions/59214324/flask-error-db-scoped-session-instance-of-scoped-session-has-no-commit-mem

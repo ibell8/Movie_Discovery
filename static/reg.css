@@ -1,0 +1,18 @@
+body{
+    background: linear-gradient(0.25turn, #09c1e1, #d8d3d7,#e928df );
+    color: black;
+}
+h1{
+    text-align: center;
+}
+label {
+    display: block;
+    margin-top: 1em;
+}
+input[name = 'username'] {
+    height: 2em;
+    width: 15em;
+}
+.register {
+    text-align: center;
+}

@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Movie Exploration</title>
+        {% if random_num == 0 %}
+            <style>
+                body{background: linear-gradient(0.25turn, #2e2e34, #9f9295,#0f0701)}
+            </style>
+        {% endif %}
+        {% if random_num == 1 %}
+            <style>
+                body{background: linear-gradient(0.25turn, #14ccd3, #fee7ec,#230d88 );}
+            </style>
+        {% endif %}
+        {% if random_num == 2 %}
+            <style>
+                body{background: linear-gradient(0.25turn, #970827, #af5d6f,#d1c519 );}
+            </style>
+        {% endif %}
+
+        <link rel="stylesheet" href="../static/style.css" type='text/css'>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <b>{{message}}</b>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class = "heading"></div>
+            <h1 class ='spaces'>Movie Exploration</h1>
+
+            <div class = "my_comments">
+                <form action="/comments">
+                    <label for="my_comments">To see your comments click below</label>
+                    <input type="submit" name="my_comments" id="submit_my_comments">
+                </form>
+            </div>
+
+            <h2 class ='spaces'>{{name}}</h2>
+        </div>
+            <div class ='gContainer'>
+                <p>Genres:</p>
+                {% for genre in genres:%}
+                    <p>{{genre}}&nbsp </p>
+                {% endfor %}
+                <p>and {{last}}</p>
+            </div>
+        </ol>
+        <div>
+            <div>
+                <img src="{{image}}" alt="" width = 500 height=650 class="center">
+                <div>
+                    <p>{{tagline}}</p>
+                </div>
+            </div> 
+        </div> 
+        <div class= "box">
+        <a href={{link}}>Click here for more information</a>
+        </div>
+        
+        <div class='add_comment'>
+            <fieldset>
+                <legend>Add Comment</legend>
+                <form action="/added_comment" method="POST">
+                    <label for="Movie_id">Movie ID</label>
+                    <input type="text" id="Movie_id" name="Movie_ID" value = {{movie_id}} readonly >
+
+                    <label for="rating">Rating below(from 0 - 10 please)</label>
+                    <input type="integer" id="rating" name='rating' placeholder="Out of 10 please">
+
+                    <label for="comment">Comment below</label>
+                    <textarea name="comment" id="comment" cols="30" rows="10" placeholder="200 character limit"></textarea>
+                    <input type="submit" id = 'submit' value="Submit">
+                </form> 
+            </fieldset>
+        </div>
+        
+        <div class="comment_section">
+            <fieldset>
+                <legend>Comment Section</legend>
+                {% for comment in movie_comments: %}
+                    <p>{{comment}}</p>
+                {% endfor %}
+        </fieldset>
+        </div>
+    </body>
+</html>

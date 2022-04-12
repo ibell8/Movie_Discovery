@@ -1,0 +1,63 @@
+//import './App.css';
+import React, {useState, useRef, useEffect} from 'react';
+
+function Rating(props) {
+  const [values, setValues] = useState({
+    rating: props.name.rating
+  });
+  const handleRating = (event) => {
+    setValues({...values, rating:event.target.value})
+  }
+  return(<form>
+      <label>rating:</label>
+      <input type="number" name="rating" onChange={handleRating} value={values.rating}/>
+      <label>comment:</label>
+      <input type="text" name="name" value={props.name.comment}/>
+      <input type="submit" value ="DELETE" onClick={props.deleteComment}/>
+      </form>
+      );
+}
+function App() {
+  const [jsonData, setJsonData] = useState([]);
+  
+  useEffect(()=>{
+    const fetchJSON = async () => {
+      const response = await fetch("/get_my_comments");
+      let json = await response.json();
+      setJsonData(json);
+    };
+    fetchJSON();
+  }, []);
+  const deleteComm = (event) => {
+    event.preventDefault();
+    console.log(12);
+  }
+  const submitData = (event)=> {
+    event.preventDefault();
+    const data = jsonData;
+      fetch('/update_my_comments', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(res => res.json())
+      .then(res => console.log(res));
+    
+    
+};
+  var p = 0;
+  return (
+    <div>
+      <div>
+      <h1>Your reviewed Comments</h1>
+      {jsonData.map(postDetail => {
+        return <p> <Rating name = {postDetail} i={p++} deleteComment={deleteComm} /> </p>
+      })}
+      </div>
+      <input type="submit" value ="Save" onClick={submitData}/>
+    </div>
+  );
+}
+export default App;
